@@ -33,7 +33,7 @@ export interface Image {
 }
 
 export interface Treatment extends Id {
-  name: string;
+  name: "Massage" | "Facial" | "Scrub";
   durationInMinutes: number;
   image: Image;
   description: string;

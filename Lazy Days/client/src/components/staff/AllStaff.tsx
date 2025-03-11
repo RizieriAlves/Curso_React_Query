@@ -9,6 +9,10 @@ export function AllStaff() {
   const { staff, filter, setFilter } = useStaff();
   const treatments = useTreatments();
 
+  const handleChange = (nextValue: string) => {
+    setFilter(nextValue as "All" | "Massage" | "Facial" | "Scrub");
+  };
+
   return (
     <Box>
       <Heading mt={10} textAlign="center">
@@ -19,10 +23,10 @@ export function AllStaff() {
           <Staff key={staffData.id} staffData={staffData} />
         ))}
       </HStack>
-      <RadioGroup onChange={setFilter} value={filter}>
+      <RadioGroup onChange={handleChange} value={filter}>
         <HStack my={10} spacing={8} justify="center">
           <Heading size="md">Filter by treatment:</Heading>
-          <Radio value="all">All</Radio>
+          <Radio value="All">All</Radio>
           {treatments.map((t) => (
             <Radio key={t.id} value={t.name}>
               {t.name}

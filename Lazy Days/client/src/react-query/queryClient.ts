@@ -24,4 +24,13 @@ export const queryClient = new QueryClient({
       errorHandler(error.message);
     },
   }),
+  defaultOptions: {
+    queries: {
+      staleTime: 60000,
+      gcTime: 90000,
+      refetchOnMount: true,
+      refetchOnReconnect: true,
+      refetchOnWindowFocus: true,
+    },
+  },
 });
