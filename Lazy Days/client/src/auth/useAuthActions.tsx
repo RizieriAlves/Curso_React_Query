@@ -19,7 +19,7 @@ type ErrorResponse = { message: string };
 type AuthResponseType = UserResponse | ErrorResponse;
 
 export function useAuthActions(): UseAuth {
-  const { updateUser, clearUser } = useUser();
+  const { updateUser, clearUser, clearData } = useUser();
   const { setLoginData, clearLoginData } = useLoginData();
 
   const SERVER_ERROR = "There was an error contacting the server.";
@@ -78,6 +78,7 @@ export function useAuthActions(): UseAuth {
   function signout(): void {
     // clear user from stored user data
     clearUser();
+    clearData();
     clearLoginData();
     toast({
       title: "Logged out!",

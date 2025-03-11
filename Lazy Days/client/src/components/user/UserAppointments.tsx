@@ -30,7 +30,7 @@ function AppointmentsTable({ userAppointments }: AppointmentsTableProps) {
   return (
     <Table variant="simple" m={10} maxWidth="500px">
       <Tbody>
-        {userAppointments.map((appointment) => (
+        {userAppointments?.map((appointment) => (
           <Tr key={appointment.id}>
             <Td>
               <Text>{dayjs(appointment.dateTime).format("MMM D")}</Text>
@@ -73,7 +73,7 @@ export function UserAppointments() {
         Your Appointments
       </Heading>
       <Center>
-        {userAppointments.length > 0 ? (
+        {userAppointments?.length > 0 ? (
           <AppointmentsTable userAppointments={userAppointments} />
         ) : (
           <Link to="/Calendar">Book an appointment</Link>
