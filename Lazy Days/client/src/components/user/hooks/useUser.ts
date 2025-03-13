@@ -34,9 +34,7 @@ export function useUser() {
 
   // meant to be called from useAuth
   function updateUser(newUser: User): void {
-    //Colocando os dados no cache abaixo
-    //Quais a key? retorno do generateUserKey.
-    //Qual o dado? newUser
+    //Pega os dados atualizados retornados e coloca no cache
     queryClient.setQueryData(
       generateUserKey(newUser.id, newUser.token),
       newUser
