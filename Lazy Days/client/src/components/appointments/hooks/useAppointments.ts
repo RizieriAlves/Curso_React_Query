@@ -72,7 +72,14 @@ export function useAppointments() {
 
   /** ****************** END 3: useQuery  ******************************* */
 
-  return { appointments, monthYear, updateMonthYear, showAll, setShowAll };
+  return {
+    appointments,
+    monthYear,
+    updateMonthYear,
+    showAll,
+    selectFn,
+    setShowAll,
+  };
 }
 
 export function prefetchAppointments(

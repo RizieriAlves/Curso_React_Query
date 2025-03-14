@@ -1,4 +1,9 @@
-import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
+import {
+  MutationCache,
+  QueryCache,
+  QueryClient,
+  QueryClientConfig,
+} from "@tanstack/react-query";
 
 import { toast } from "@/components/app/toast";
 
@@ -17,7 +22,7 @@ function errorHandler(errorMsg: string, action: "fetch" | "mutate") {
   }
 }
 
-export const queryClient = new QueryClient({
+export const queryClientOptions: QueryClientConfig = {
   defaultOptions: {
     queries: {
       staleTime: 60000,
@@ -37,4 +42,5 @@ export const queryClient = new QueryClient({
       errorHandler(error.message, "mutate");
     },
   }),
-});
+};
+export const queryClient = new QueryClient(queryClientOptions);
